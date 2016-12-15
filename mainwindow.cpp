@@ -103,6 +103,7 @@ QString MainWindow::translateStringToBF(QString s)
     for (int i = 0; i < 30000; i++)
         arr[i] =(char)k;
     QList<QChar> res;
+    res.append((QChar)k);
     for (int i = 0; s[i] != '\0'; i++){
         int min_d = 0;
         for (int j = 0;j < arr_n; j++){
@@ -203,7 +204,7 @@ void MainWindow::createActions()
     connect(openAction,SIGNAL(triggered()),this,SLOT(open()));
 
     runAction=new QAction(QIcon(":/images/run.jpg"),tr("Run"),this);
-    runAction->setShortcut(tr("Ctrl+F5"));
+    runAction->setShortcut(tr("F5"));
     runAction->setStatusTip(tr("Translate text to BrainFuck code"));
     connect(runAction,SIGNAL(triggered()),this,SLOT(translateButClick()));
 
